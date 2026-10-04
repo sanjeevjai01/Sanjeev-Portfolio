@@ -5330,3 +5330,19 @@ a {
 .profile-card .profile-info {
   text-align: center;
 }
+/* ==========================================
+   SKILL ITEMS
+========================================== */
+
+.skill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+}

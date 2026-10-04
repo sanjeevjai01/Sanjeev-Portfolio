@@ -1343,57 +1343,36 @@ function App() {
           SKILLS
       ========================================== */}
 
-      {siteSettings.show_skills && (
+      {skills.map((skill) => (
 
-        <section
-          id="skills"
-          className="public-section"
-        >
+  <span
+    key={skill.id}
+    className="skill-item"
+  >
 
-          <div className="section-heading">
+    {/* ==========================================
+        SKILL ICON
+    ========================================== */}
 
-            <span>
-              03
-            </span>
+    {skill.icon_url && (
+      <img
+        src={skill.icon_url}
+        alt=""
+        className="skill-icon"
+      />
+    )}
 
-            <h2>
-              Skills
-            </h2>
+    {/* ==========================================
+        SKILL NAME
+    ========================================== */}
 
-          </div>
+    <span>
+      {skill.name}
+    </span>
 
-          {skills.length === 0 ? (
+  </span>
 
-            <div className="empty-section-card">
-
-              <strong>
-                Skills Coming Soon
-              </strong>
-
-            </div>
-
-          ) : (
-
-            <div className="skills-preview">
-
-              {skills.map((skill) => (
-
-                <span
-                  key={skill.id}
-                >
-                  {skill.name}
-                </span>
-
-              ))}
-
-            </div>
-
-          )}
-
-        </section>
-
-      )}
-
+))}
       {/* ==========================================
           CERTIFICATIONS
       ========================================== */}
