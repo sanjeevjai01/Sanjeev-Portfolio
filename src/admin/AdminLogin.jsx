@@ -3,9 +3,15 @@
 // ==========================================
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginAdmin } from "../lib/auth";
 
 function AdminLogin() {
+  // ==========================================
+  // NAVIGATION
+  // ==========================================
+
+  const navigate = useNavigate();
 
   // ==========================================
   // FORM STATE
@@ -33,9 +39,17 @@ function AdminLogin() {
     setLoading(true);
 
     try {
+      // ==========================================
+      // SUPABASE LOGIN
+      // ==========================================
+
       await loginAdmin(email, password);
 
-      window.location.href = "/admin/dashboard";
+      // ==========================================
+      // GO TO ADMIN DASHBOARD
+      // ==========================================
+
+      navigate("/admin/dashboard");
 
     } catch (error) {
       setError(error.message);
@@ -56,8 +70,11 @@ function AdminLogin() {
           ========================================== */}
 
       <div className="admin-login-grid"></div>
+
       <div className="admin-login-glow admin-glow-one"></div>
+
       <div className="admin-login-glow admin-glow-two"></div>
+
 
       {/* ==========================================
           LOGIN CARD
@@ -65,9 +82,12 @@ function AdminLogin() {
 
       <section className="admin-login-card">
 
-        {/* BRAND */}
+        {/* ==========================================
+            BRAND
+            ========================================== */}
 
         <div className="admin-brand">
+
           <div className="admin-brand-logo">
             S
           </div>
@@ -76,11 +96,16 @@ function AdminLogin() {
             <span>SANJEEV</span>
             <small>PORTFOLIO</small>
           </div>
+
         </div>
 
-        {/* HEADING */}
+
+        {/* ==========================================
+            LOGIN HEADING
+            ========================================== */}
 
         <div className="admin-login-heading">
+
           <p>PRIVATE ACCESS</p>
 
           <h1>
@@ -92,22 +117,34 @@ function AdminLogin() {
           <span>
             Sign in to manage your portfolio.
           </span>
+
         </div>
 
-        {/* ERROR */}
+
+        {/* ==========================================
+            ERROR MESSAGE
+            ========================================== */}
 
         {error && (
           <div className="admin-login-error">
+
             <span>!</span>
+
             {error}
+
           </div>
         )}
 
-        {/* FORM */}
+
+        {/* ==========================================
+            LOGIN FORM
+            ========================================== */}
 
         <form onSubmit={handleLogin}>
 
-          {/* EMAIL */}
+          {/* ==========================================
+              EMAIL FIELD
+              ========================================== */}
 
           <div className="admin-field">
 
@@ -119,7 +156,9 @@ function AdminLogin() {
               id="admin-email"
               type="email"
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(event) =>
+                setEmail(event.target.value)
+              }
               placeholder="Enter your email"
               autoComplete="email"
               required
@@ -127,7 +166,10 @@ function AdminLogin() {
 
           </div>
 
-          {/* PASSWORD */}
+
+          {/* ==========================================
+              PASSWORD FIELD
+              ========================================== */}
 
           <div className="admin-field">
 
@@ -139,18 +181,30 @@ function AdminLogin() {
 
               <input
                 id="admin-password"
-                type={showPassword ? "text" : "password"}
+                type={
+                  showPassword
+                    ? "text"
+                    : "password"
+                }
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(event) =>
+                  setPassword(event.target.value)
+                }
                 placeholder="Enter your password"
                 autoComplete="current-password"
                 required
               />
 
+              {/* ==========================================
+                  SHOW / HIDE PASSWORD
+                  ========================================== */}
+
               <button
                 type="button"
                 className="admin-password-toggle"
-                onClick={() => setShowPassword(!showPassword)}
+                onClick={() =>
+                  setShowPassword(!showPassword)
+                }
                 aria-label={
                   showPassword
                     ? "Hide password"
@@ -164,29 +218,39 @@ function AdminLogin() {
 
           </div>
 
-          {/* LOGIN BUTTON */}
+
+          {/* ==========================================
+              LOGIN BUTTON
+              ========================================== */}
 
           <button
             type="submit"
             className="admin-login-submit"
             disabled={loading}
           >
+
             {loading ? (
               <>
                 <span className="admin-spinner"></span>
+
                 Signing in...
               </>
             ) : (
               <>
                 Access Dashboard
+
                 <span>→</span>
               </>
             )}
+
           </button>
 
         </form>
 
-        {/* SECURITY STATUS */}
+
+        {/* ==========================================
+            SECURITY STATUS
+            ========================================== */}
 
         <div className="admin-security">
 
@@ -202,7 +266,10 @@ function AdminLogin() {
 
         </div>
 
-        {/* BACK TO WEBSITE */}
+
+        {/* ==========================================
+            BACK TO PORTFOLIO
+            ========================================== */}
 
         <a
           href="/"
