@@ -1,5 +1,7 @@
-https://sanjeev-portfolio-rosy.vercel.app  (Live Demo of Portfolio
+https://sanjeev-portfolio-rosy.vercel.app  (Live Demo of Portfolio)
+
 This is a personal portfolio website that shows all about me like skills, projects,education, certifications etc...
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
