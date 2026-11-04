@@ -13,7 +13,7 @@ import {
   FaLinkedin,
   FaInstagram,
   FaWhatsapp,
-  FaEnvelope,
+  FaEnvelope, 
   FaExternalLinkAlt,
   FaDownload,
 } from "react-icons/fa";
